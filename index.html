@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Interactivo RGB</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <div class="contador-container">
+        <div class="titulo">Contador Interactivo RGB</div>
+        <div class="contador" id="contador">0</div>
+
+        <button id="aumentar">Aumentar</button>
+        <button id="disminuir">Disminuir</button>
+    </div>
+
+    <script>
+        let contador = 0;
+        const contadorDisplay = document.getElementById('contador');
+        const aumentar = document.getElementById('aumentar');
+        const disminuir = document.getElementById('disminuir');
+
+        // Actualizar el contador en el DOM
+        function actualizarContador() {
+            contadorDisplay.textContent = contador;
+        }
+
+        // Eventos para aumentar y disminuir el contador
+        aumentar.addEventListener('click', function () {
+            contador++;
+            actualizarContador();
+        });
+
+        disminuir.addEventListener('click', function () {
+            contador--;
+            actualizarContador();
+        });
+
+        // Control del teclado: Flecha arriba para aumentar, Flecha abajo para disminuir
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'ArrowUp') {
+                contador++;
+            } else if (event.key === 'ArrowDown') {
+                contador--;
+            }
+            actualizarContador();
+        });
+    </script>
+
+</body>
+
+</html>
